@@ -43,8 +43,12 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).
+            tags(
+                new Tag("Simulações", "Efetua operações de CRUD para simulações"),
+                new Tag("Restrições", "Consulta uma restrição")).
             genericModelSubstitutes(ListenableFuture.class).
             useDefaultResponseMessages(false).
+            directModelSubstitute(Object.class, void.class). // workaround para nao mostrar o example mapping vazio
             apiInfo(apiInfo()).
             select().
             apis(RequestHandlerSelectors.basePackage("com.eliasnogueira.credit.controller")).
