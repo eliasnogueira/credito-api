@@ -41,12 +41,12 @@ public class SimulacaoDto {
     private Long id;
 
     @ApiModelProperty(required = true, example = "97093236014",
-        notes = "Nome não pode ser vazio")
+        notes = "CPF não pode ser vazio")
     private String cpf;
 
     @ApiModelProperty(position = 1, required = true, example = "João da Silva",
-        notes = "CPF não pode ser vazio")
-    private String nonme;
+        notes = "Nome não pode ser vazio")
+    private String nome;
 
     @ApiModelProperty(position = 2, required = true, example = "email@email.com",
         notes = "E-mail deve ser um e-mail válido")
