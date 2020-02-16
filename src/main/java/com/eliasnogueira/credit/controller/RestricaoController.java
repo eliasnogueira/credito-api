@@ -30,6 +30,7 @@ import com.eliasnogueira.credit.exception.v2.RestricaoException;
 import com.eliasnogueira.credit.service.RestricaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import java.text.MessageFormat;
@@ -40,7 +41,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Api(value = "Restrição", tags = "Restrição")
+@Api(value = "Restrições", tags = "Restrições")
 public class RestricaoController {
 
     private final RestricaoService restricaoService;
@@ -55,8 +56,8 @@ public class RestricaoController {
         @ApiResponse(code = 404, message = "Não possui restrição"),
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = MensagemDto.class)
     })
-    @GetMapping("/api/v1/restrictions/{cpf}")
-    ResponseEntity<Void> one(@PathVariable String cpf) {
+    @GetMapping("/api/v1/restricoes/{cpf}")
+    ResponseEntity<Void> one(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
@@ -72,7 +73,7 @@ public class RestricaoController {
         @ApiResponse(code = 404, message = "Não possui restrição"),
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = com.eliasnogueira.credit.dto.v2.MensagemDto.class)
     })
-    @GetMapping("/api/v2/restrictions/{cpf}")
+    @GetMapping("/api/v2/restricoes/{cpf}")
     ResponseEntity<Void> oneV2(@PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
