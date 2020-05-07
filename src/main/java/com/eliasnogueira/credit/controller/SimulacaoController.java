@@ -79,7 +79,7 @@ public class SimulacaoController {
         @ApiResponse(code = 404, message = "Nome não encontrado")
     })
     @SneakyThrows
-    List<Simulacao> getSimulacao(@ApiParam(value = "Pesquisar uma simulação pelo nome da pessoa")
+    public List<Simulacao> getSimulacao(@ApiParam(value = "Pesquisar uma simulação pelo nome da pessoa")
     @RequestParam(name = "nome", required = false) String name) {
         List<Simulacao> simulationsFound;
 
@@ -101,7 +101,7 @@ public class SimulacaoController {
         @ApiResponse(code = 200, message = "Simulação encontrada", response = SimulacaoDto.class),
         @ApiResponse(code = 404, message = "Simulação não encontrada")
     })
-    ResponseEntity<Simulacao> one(@ApiParam(value = "CPF da pesssoa a ser pesquisada", required = true) @PathVariable String cpf) {
+    public ResponseEntity<Simulacao> one(@ApiParam(value = "CPF da pesssoa a ser pesquisada", required = true) @PathVariable String cpf) {
         return repository.findByCpf(cpf).
             map(simulacao -> ResponseEntity.ok().body(simulacao)).
             orElseThrow(() -> new SimulacaoException(MessageFormat.format(CPF_NAO_ENCONTRADO, cpf)));
@@ -117,7 +117,7 @@ public class SimulacaoController {
         @ApiResponse(code = 422, message = "Falta de informações", response = ValidacaoDto.class),
         @ApiResponse(code = 409, message = "CPF já existente")
     })
-    ResponseEntity<?> novaSimulacao(@ApiParam(value = "Objeto da Simulação", required = true)
+    public ResponseEntity<Simulacao> novaSimulacao(@ApiParam(value = "Objeto da Simulação", required = true)
         @Valid @RequestBody SimulacaoDto simulacao) {
         Simulacao createdSimulation = repository.save(new ModelMapper().map(simulacao, Simulacao.class));
         URI location = ServletUriComponentsBuilder.
@@ -136,7 +136,7 @@ public class SimulacaoController {
         @ApiResponse(code = 404, message = "Simulação não encontrada"),
         @ApiResponse(code = 409, message = "CPF já existente")
     })
-    Simulacao atualizarSimulacao(
+    public Simulacao atualizarSimulacao(
         @ApiParam(value = "Objeto simulação com os dados que serão atualizados", required = true)
             @RequestBody SimulacaoDto simulacao,
         @ApiParam(value = "CPF da pesssoa para a simulação que será atualizada", required = true)
@@ -153,7 +153,7 @@ public class SimulacaoController {
         @ApiResponse(code = 204, message = "Simulação removida com sucesso"),
         @ApiResponse(code = 404, message = "Simulação não encontrada")
     })
-    void delete(@ApiParam(value = "CPF da pesssoa para a simulação que será removida", required = true)
+    public void delete(@ApiParam(value = "CPF da pesssoa para a simulação que será removida", required = true)
         @PathVariable String cpf) {
         if (repository.findByCpf(cpf).isEmpty())
             throw new SimulacaoException(MessageFormat.format(CPF_NAO_ENCONTRADO, cpf));

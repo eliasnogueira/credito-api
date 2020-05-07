@@ -57,7 +57,7 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = MensagemDto.class)
     })
     @GetMapping("/api/v1/restricoes/{cpf}")
-    ResponseEntity<Void> one(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
+    public ResponseEntity<Void> one(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
@@ -74,7 +74,7 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = com.eliasnogueira.credit.dto.v2.MensagemDto.class)
     })
     @GetMapping("/api/v2/restricoes/{cpf}")
-    ResponseEntity<Void> oneV2(@PathVariable String cpf) {
+    public ResponseEntity<Void> oneV2(@PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
