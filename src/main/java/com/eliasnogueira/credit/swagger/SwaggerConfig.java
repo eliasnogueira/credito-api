@@ -24,9 +24,9 @@
 
 package com.eliasnogueira.credit.swagger;
 
-import com.google.common.util.concurrent.ListenableFuture;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.concurrent.ListenableFuture;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
