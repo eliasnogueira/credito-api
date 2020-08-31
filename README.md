@@ -24,7 +24,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=<PORTA_DE_SUA_ESCO
 ```
 
 ## Como acessar a documentação (Swagger)
-Após ter iniciado a aplicação acesse o seguinte link: http://localhost:8088/swagger-ui.html
+Após ter iniciado a aplicação acesse o seguinte link: http://localhost:8088/swagger-ui/index.html
 
 # Quer ajudar?
 Por favor, leia o [Guia de Contribuição](CONTRIBUTING.md)
