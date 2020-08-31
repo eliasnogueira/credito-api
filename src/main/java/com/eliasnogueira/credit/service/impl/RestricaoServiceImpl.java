@@ -39,11 +39,6 @@ public class RestricaoServiceImpl implements RestricaoService {
         this.repository = repository;
     }
 
-    @Override
-    public Restricao save(Restricao restricao) {
-        return null;
-    }
-
     public Optional<Restricao> findByCpf(String cpf) {
         return repository.findByCpf(cpf);
     }

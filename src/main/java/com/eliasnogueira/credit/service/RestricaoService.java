@@ -29,8 +29,6 @@ import java.util.Optional;
 
 public interface RestricaoService {
 
-    Restricao save(Restricao restricao);
-
     Optional<Restricao> findByCpf(String cpf);
 
 }
