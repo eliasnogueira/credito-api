@@ -27,7 +27,6 @@ package com.eliasnogueira.credit.controller;
 import com.eliasnogueira.credit.dto.SimulacaoDto;
 import com.eliasnogueira.credit.dto.ValidacaoDto;
 import com.eliasnogueira.credit.entity.Simulacao;
-import com.eliasnogueira.credit.exception.SimulacaoPorNomeNaoEncontradaException;
 import com.eliasnogueira.credit.exception.SimulacaoException;
 import com.eliasnogueira.credit.repository.SimulacaoRepository;
 import io.swagger.annotations.Api;
@@ -76,9 +75,8 @@ public class SimulacaoController {
     @ApiOperation(value = "Retorna todas as simulações existentes")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Simulações encontradas", response = SimulacaoDto.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Nome não encontrado")
+        @ApiResponse(code = 404, message = "Simulação não encontrada")
     })
-    @SneakyThrows
     public List<Simulacao> getSimulacao(@ApiParam(value = "Pesquisar uma simulação pelo nome da pessoa")
     @RequestParam(name = "nome", required = false) String name) {
         List<Simulacao> simulationsFound;
@@ -90,7 +88,7 @@ public class SimulacaoController {
 
         simulationsFound = repository.findAll(example);
 
-        if (simulationsFound.isEmpty()) throw new SimulacaoPorNomeNaoEncontradaException();
+        if (simulationsFound.isEmpty()) throw new SimulacaoException("Simulação não encontrada");
 
         return simulationsFound;
     }
