@@ -13,7 +13,6 @@ Após ter efetuado o clone do projeto:
 1. Navegue até a pasta do projeto pelo Terminal / Prompt de Comando
 2. Execute o seguinte comando: `mvn spring-boot:run`
 3. Aguarde o seguinte texto aparecer: _Aplicação iniciada! Bons testes!_
-4. Acesse a API através do `http://localhost:8088`
 
 ## Como alterar a porta padrão a porta
 A porta padrão é a `8088`.
