@@ -80,7 +80,7 @@ public class RestricaoController {
         if (restrictionOptional.isPresent()) {
             throw new RestricaoException(
                 MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf),
-                restrictionOptional.get().getCpf());
+                restrictionOptional.get().getTipoRestricao());
         }
 
         return ResponseEntity.notFound().build();
