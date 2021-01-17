@@ -6,6 +6,15 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [1.5.0] - 17-01-2020
+
+### Changed
+- Correção no Controler de Restrições para versão 2, onde o retorno do detalhe foi alterado para o tipo de restrição
+- Adicionado construtor em `MensagemDto`
+
+### Added
+- Testes de Integração para Restrições
+
 ## [1.4.0] - 09-01-2020
 
 ### Added
