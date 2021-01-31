@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import javax.validation.Valid;
-import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
