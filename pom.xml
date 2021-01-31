@@ -23,6 +23,7 @@
         <lombok.version>1.18.16</lombok.version>
         <hibernate-jpamodelgen.version>6.0.0.Alpha6</hibernate-jpamodelgen.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven-failsafe.version>3.0.0-M5</maven-failsafe.version>
     </properties>
 
     <dependencies>
@@ -101,6 +102,13 @@
             <version>${hibernate-jpamodelgen.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -108,6 +116,20 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>pre-integration-test</id>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-integration-test</id>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
