@@ -28,7 +28,6 @@ import com.eliasnogueira.credit.dto.SimulacaoDto;
 import com.eliasnogueira.credit.dto.ValidacaoDto;
 import com.eliasnogueira.credit.entity.Simulacao;
 import com.eliasnogueira.credit.exception.SimulacaoException;
-import com.eliasnogueira.credit.exception.SimulacaoPorNomeNaoEncontradaException;
 import com.eliasnogueira.credit.repository.SimulacaoRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -88,7 +87,7 @@ public class SimulacaoController {
 
         simulationsFound = repository.findAll(example);
 
-        if (simulationsFound.isEmpty()) throw new SimulacaoPorNomeNaoEncontradaException();
+        if (simulationsFound.isEmpty()) throw new SimulacaoException("Simulação não encontrada");
 
         return simulationsFound;
     }
