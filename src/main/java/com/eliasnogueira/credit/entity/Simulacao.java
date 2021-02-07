@@ -77,7 +77,7 @@ public class Simulacao {
     @Max(value = 40000, message = "Valor deve ser menor ou igual a R$ 40.000")
     private BigDecimal valor;
 
-    @ApiModelProperty(name = "Valor", position = 5, example = "3")
+    @ApiModelProperty(name = "Parcelas", position = 5, example = "3")
     @NotNull(message = "Parcelas não pode ser vazio")
     @Min(value = 2, message = "Parcelas deve ser igual ou maior que 2")
     @Max(value = 48, message = "Parcelas deve ser menor ou igual a 48")
