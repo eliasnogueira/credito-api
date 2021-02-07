@@ -40,26 +40,21 @@ public class SimulacaoDto {
     @JsonIgnore
     private Long id;
 
-    @ApiModelProperty(required = true, example = "97093236014",
-        notes = "CPF não pode ser vazio")
+    @ApiModelProperty(name = "Nome", position = 1, example = "João da Silva")
     private String cpf;
 
-    @ApiModelProperty(position = 1, required = true, example = "João da Silva",
-        notes = "Nome não pode ser vazio")
+    @ApiModelProperty(name = "CPF", position = 2, example = "9709323014")
     private String nome;
 
-    @ApiModelProperty(position = 2, required = true, example = "email@email.com",
-        notes = "E-mail deve ser um e-mail válido")
+    @ApiModelProperty(name = "Email", position = 3, example = "joao@gmail.com")
     private String email;
 
-    @ApiModelProperty(position = 3, required = true, example = "1200",
-        notes = "Valor deve ser igual ou maior a R$ 1.000 e menor ou igual a 40.000")
+    @ApiModelProperty(name = "Valor", position = 4, example = "1200")
     private BigDecimal valor;
 
-    @ApiModelProperty(position = 4, required = true, example = "3",
-        notes = "Parcelas deve ser igual ou maior que 2 e menor ou igual a 48")
+    @ApiModelProperty(name = "Parcelas", position = 5, example = "3")
     private Integer parcelas;
 
-    @ApiModelProperty(position = 5, required = true, example = "true")
+    @ApiModelProperty(name = "Seguro", position = 5, example = "true")
     private Boolean seguro;
 }
