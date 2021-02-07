@@ -17,8 +17,15 @@ Após ter efetuado o clone do projeto:
 ## Como alterar a porta padrão a porta
 A porta padrão é a `8088`.
 Se você deseja alterar a porta padrão para alguma outra de sua escolha, execute o seguinte comando, substituindo
-o texto `<PORTA_DE_SUA_ESCOLHA>` para uma porta não utilizada:
+o texto `<PORTA_DE_SUA_ESCOLHA>` para uma porta não utilizada.
+
+Alterando a porta executando a aplicação através do arquivo `.jar`
+```shell
+java -jar credit-api-VERSION.jar --server-port=8089
 ```
+
+Alterando a porta executando a aplicação usando `mvn`
+```shell
 mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=<PORTA_DE_SUA_ESCOLHA>
 ```
 
