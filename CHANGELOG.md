@@ -4,7 +4,15 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.0] - 07-02-2021
+## [1.6.2] - 07-02-2021
+
+### Changed
+- Alterado exception quando uma simulação pelo atributo nome não é encontrado
+
+### Removed
+- Exception para pesquisa por simulação pelo nome
+
+## [1.6.1] - 07-02-2021
 
 ### Added
 - Adicionado profile padrão do spring (default)
