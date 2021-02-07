@@ -4,9 +4,21 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 07-02-2021
+
+### Added
+- Adicionado profile padrão do spring (default)
+- Exception customizada para pesquisa por nome não encontrado no endpoint the simulações
+
+### Changed
+- Documentação atualizada com exemplo de execução do projeto através de arquivo `.jar`
+- Atualização de dependências
+  - `junit.version-5.7.1`
+  - `lombok.version-1.18.18`
+
 ## [1.6.0] - 31-01-2020
 
-# Changed
+### Changed
 - Alteração do log level para remover a verbosidade do console
 
 ## [1.5.0] - 17-01-2020
