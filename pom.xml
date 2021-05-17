@@ -18,7 +18,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <junit.version>5.7.1</junit.version>
+        <junit.version>5.7.2</junit.version>
         <springfox.version>3.0.0</springfox.version>
         <modelmapper.version>2.3.9</modelmapper.version>
         <lombok.version>1.18.18</lombok.version>
