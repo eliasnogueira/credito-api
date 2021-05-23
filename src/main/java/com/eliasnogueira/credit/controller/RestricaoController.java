@@ -26,18 +26,21 @@ package com.eliasnogueira.credit.controller;
 
 import com.eliasnogueira.credit.dto.v1.MensagemDto;
 import com.eliasnogueira.credit.entity.Restricao;
-import com.eliasnogueira.credit.exception.v2.RestricaoException;
+import com.eliasnogueira.credit.exception.RestricaoException;
 import com.eliasnogueira.credit.service.RestricaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+
 import java.text.MessageFormat;
 import java.util.Optional;
-import org.springframework.http.ResponseEntity;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -57,15 +60,15 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = MensagemDto.class)
     })
     @GetMapping("/api/v1/restricoes/{cpf}")
-    public ResponseEntity<Void> one(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
+    @ResponseStatus(HttpStatus.OK)
+    public MensagemDto one(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
-            throw new com.eliasnogueira.credit.exception.v1.RestricaoException(
-                MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf));
+            return new MensagemDto(MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf));
+        } else {
+            throw new RestricaoException();
         }
-
-        return ResponseEntity.notFound().build();
     }
 
     @ApiOperation(value = "Consulta se um CPF possui ou não restrição")
@@ -74,14 +77,15 @@ public class RestricaoController {
         @ApiResponse(code = 200, message = "Pessoa com restrição", response = com.eliasnogueira.credit.dto.v2.MensagemDto.class)
     })
     @GetMapping("/api/v2/restricoes/{cpf}")
-    public ResponseEntity<Void> oneV2(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
+    @ResponseStatus(HttpStatus.OK)
+    public com.eliasnogueira.credit.dto.v2.MensagemDto oneV2(@ApiParam(value = "CPF que será consultado", required = true) @PathVariable String cpf) {
         Optional<Restricao> restrictionOptional = restricaoService.findByCpf(cpf);
 
         if (restrictionOptional.isPresent()) {
-            throw new RestricaoException(
-                MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf), restrictionOptional.get().getTipoRestricao());
+            return new com.eliasnogueira.credit.dto.v2.MensagemDto(
+                    MessageFormat.format(CPF_POSSUI_RESTRICAO, cpf), restrictionOptional.get().getTipoRestricao());
+        } else {
+            throw new RestricaoException();
         }
-
-        return ResponseEntity.notFound().build();
     }
 }
