@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.eliasnogueira.credit.exception.v1;
+package com.eliasnogueira.credit.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,10 +31,4 @@ import lombok.Data;
 @AllArgsConstructor
 public class RestricaoException extends RuntimeException {
 
-    private final String mensagem;
-
-    @Override
-    public String toString() {
-        return mensagem;
-    }
 }
