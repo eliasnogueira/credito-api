@@ -24,29 +24,18 @@
 
 package com.eliasnogueira.credit.exception.advice;
 
-import com.eliasnogueira.credit.dto.v1.MensagemDto;
-import com.eliasnogueira.credit.exception.v2.RestricaoException;
+import com.eliasnogueira.credit.exception.RestricaoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class RestricaoAdvice {
 
-    @ResponseBody
-    @ExceptionHandler(com.eliasnogueira.credit.exception.v1.RestricaoException.class)
-    @ResponseStatus(HttpStatus.OK)
-    MensagemDto restrictionHandlerV1(com.eliasnogueira.credit.exception.v1.RestricaoException e) {
-        return new MensagemDto(e.getMensagem());
-    }
-
-    @ResponseBody
     @ExceptionHandler(RestricaoException.class)
-    @ResponseStatus(HttpStatus.OK)
-    com.eliasnogueira.credit.dto.v2.MensagemDto restrictionHandlerV2(
-        RestricaoException e) {
-        return new com.eliasnogueira.credit.dto.v2.MensagemDto(e.getMensagem(), e.getDetalhe());
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    void restrictionHandlerV1(RestricaoException e) {
+        // não possui retorno
     }
 }
