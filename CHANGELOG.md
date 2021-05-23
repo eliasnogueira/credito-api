@@ -4,6 +4,23 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 15-02-2021
+
+### Changed
+- `RestricaoController` agora response o objeto `MensagemDto` por padrão em ambos os métodos com `HttpStatus.OK`
+- `RestricaoException` agora possui uma única classe
+- `RestricaoAdvice` retorna `HttpStatus.NOT_FOUND`
+- Atualização de bibliotecas
+  - `junit-5.8.0-M1`
+  - `hibernate-jpamodelgen-6.0.0.Alpha8`
+  - `modelmapper-2.4.3`
+  - `spring-boot-starter-parent-2.5.0`
+  - `lombok-1.18.20`
+
+### Removed
+- Removido pacote `exception.v1`
+- Removido `RestricaoException` no pacote `exception.v2`
+
 ## [1.6.2] - 07-02-2021
 
 ### Changed
