@@ -24,20 +24,23 @@
 
 package com.eliasnogueira.credit.entity;
 
-public enum TipoRestricao {
+import java.util.function.Supplier;
+
+public enum TipoRestricao implements Supplier<String> {
 
     BLOQUEIO_JURICIAL("Bloqueio Judicial"),
     CARTAO_CREDITO("Cartão de Crédito"),
     SPC("SPC"),
     BANCARIA("Bancária");
 
-    private String value;
+    private final String value;
 
     TipoRestricao(String value) {
         this.value = value;
     }
 
-    public String value() {
+    @Override
+    public String get() {
         return value;
     }
 }
