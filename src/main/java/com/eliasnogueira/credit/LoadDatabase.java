@@ -29,11 +29,12 @@ import com.eliasnogueira.credit.entity.Simulacao;
 import com.eliasnogueira.credit.entity.TipoRestricao;
 import com.eliasnogueira.credit.repository.RestricaoRepository;
 import com.eliasnogueira.credit.repository.SimulacaoRepository;
-import java.math.BigDecimal;
-import java.util.HashMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
 
 @Configuration
 public class LoadDatabase {
@@ -41,22 +42,22 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initCreditDatabase(RestricaoRepository restricaoRepository) {
         return args -> dataToInsert()
-            .forEach((cpf, restriction) -> restricaoRepository.save(new Restricao(cpf, restriction)));
+                .forEach((cpf, restriction) -> restricaoRepository.save(new Restricao(cpf, restriction)));
     }
 
     private HashMap<String, String> dataToInsert() {
         HashMap<String, String> data = new HashMap<>();
 
-        data.put("97093236014", TipoRestricao.BLOQUEIO_JURICIAL.value());
-        data.put("60094146012", TipoRestricao.CARTAO_CREDITO.value());
-        data.put("84809766080", TipoRestricao.BANCARIA.value());
-        data.put("62648716050", TipoRestricao.SPC.value());
-        data.put("26276298085", TipoRestricao.SPC.value());
-        data.put("01317496094", TipoRestricao.CARTAO_CREDITO.value());
-        data.put("55856777050", TipoRestricao.BANCARIA.value());
-        data.put("19626829001", TipoRestricao.BANCARIA.value());
-        data.put("24094592008", TipoRestricao.BANCARIA.value());
-        data.put("58063164083", TipoRestricao.BANCARIA.value());
+        data.put("97093236014", TipoRestricao.BLOQUEIO_JURICIAL.get());
+        data.put("60094146012", TipoRestricao.CARTAO_CREDITO.get());
+        data.put("84809766080", TipoRestricao.BANCARIA.get());
+        data.put("62648716050", TipoRestricao.SPC.get());
+        data.put("26276298085", TipoRestricao.SPC.get());
+        data.put("01317496094", TipoRestricao.CARTAO_CREDITO.get());
+        data.put("55856777050", TipoRestricao.BANCARIA.get());
+        data.put("19626829001", TipoRestricao.BANCARIA.get());
+        data.put("24094592008", TipoRestricao.BANCARIA.get());
+        data.put("58063164083", TipoRestricao.BANCARIA.get());
 
         return data;
     }
@@ -65,9 +66,9 @@ public class LoadDatabase {
     CommandLineRunner initRestrictionDatabase(SimulacaoRepository simulacaoRepository) {
         return args -> {
             simulacaoRepository.save(Simulacao.builder().cpf("66414919004").nome("João").email("joao@gmail.com")
-                .valor(new BigDecimal(11000)).parcelas(3).seguro(true).build());
+                    .valor(new BigDecimal(11000)).parcelas(3).seguro(true).build());
             simulacaoRepository.save(Simulacao.builder().cpf("17822386034").nome("Maria").email("maria@gmail.com")
-                .valor(new BigDecimal(20000)).parcelas(5).seguro(false).build());
+                    .valor(new BigDecimal(20000)).parcelas(5).seguro(false).build());
         };
     }
 }
