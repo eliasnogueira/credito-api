@@ -24,11 +24,12 @@
 
 package com.eliasnogueira.credit.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -38,9 +39,7 @@ public class Restricao {
     @Id
     @GeneratedValue
     private Long id;
-
     private String cpf;
-
     private String tipoRestricao;
 
     public Restricao(String cpf, String tipoRestricao) {

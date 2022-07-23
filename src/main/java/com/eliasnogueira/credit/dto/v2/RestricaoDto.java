@@ -24,17 +24,11 @@
 
 package com.eliasnogueira.credit.dto.v2;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@ApiModel(value = "Restrição v2")
 public class RestricaoDto {
 
-    @ApiModelProperty(required = true, example = "99999999999")
     private String cpf;
-
-    @ApiModelProperty(position = 1, required = true, example = "Bloqueio Judicial")
     private String tipoRestricao;
 }

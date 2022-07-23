@@ -25,36 +25,21 @@
 package com.eliasnogueira.credit.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
-@ApiModel(value = "Simulação")
 public class SimulacaoDto {
 
-    @ApiModelProperty(hidden = true)
     @JsonIgnore
     private Long id;
-
-    @ApiModelProperty(name = "Nome", position = 1, example = "João da Silva")
     private String cpf;
-
-    @ApiModelProperty(name = "CPF", position = 2, example = "9709323014")
     private String nome;
-
-    @ApiModelProperty(name = "Email", position = 3, example = "joao@gmail.com")
     private String email;
-
-    @ApiModelProperty(name = "Valor", position = 4, example = "1200")
     private BigDecimal valor;
-
-    @ApiModelProperty(name = "Parcelas", position = 5, example = "3")
     private Integer parcelas;
-
-    @ApiModelProperty(name = "Seguro", position = 5, example = "true")
     private Boolean seguro;
 }

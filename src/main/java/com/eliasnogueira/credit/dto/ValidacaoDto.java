@@ -24,13 +24,11 @@
 
 package com.eliasnogueira.credit.dto;
 
-import io.swagger.annotations.ApiModel;
 import java.util.Map;
 
-@ApiModel(value = "Validação")
 public class ValidacaoDto {
 
-    private Map<String, String> erros;
+    private final Map<String, String> erros;
 
     public ValidacaoDto(Map<String, String> erros) {
         this.erros = erros;
