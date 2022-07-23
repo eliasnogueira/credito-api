@@ -24,17 +24,13 @@
 
 package com.eliasnogueira.credit.dto.v1;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@ApiModel(value = "Mensagem v1")
 public class MensagemDto {
 
-    @ApiModelProperty(required = true, example = "O CPF 999999999 possui restrição")
     private String mensagem;
 
     @Override

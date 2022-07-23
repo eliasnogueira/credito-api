@@ -24,8 +24,6 @@
 
 package com.eliasnogueira.credit.dto.v2;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,12 +31,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value = "Mensagem v2")
 public class MensagemDto {
 
-    @ApiModelProperty(position = 0, required = true, example = "O CPF 999999999 não foi encontrado")
     private String retorno;
-
-    @ApiModelProperty(position = 1, required = true, example = "Bloqueio Judicial")
     private String detalhe;
 }
